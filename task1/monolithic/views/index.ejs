@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        body {
+            width: min(95%, 500px);
+            margin: auto;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .users {
+            display: flex;
+            flex-direction: column;
+            gap: .5em;
+        }
+        
+        .user {
+            background: rgb(207, 207, 207);
+            padding: .5em;
+        }
+
+    </style>
+</head>
+<body>
+    
+    <div class="header">
+        <h2>Users</h2>
+        <button onclick="createUser()">Create User</button>
+    </div>
+
+        <div class="users">
+            <% users.forEach(user => { %>
+                <div class="user">
+                    <h3><%= user.username %></h3>
+                    <p><%= user.mobile %></p>
+                    <p><%= user.email %></p>
+                </div>
+            <% }); %>
+        </div>
+
+
+    <script>
+
+        const createUser = async () => {
+            const email = prompt("Enter email")
+            const username = prompt("Enter username")
+            const mobile = prompt("Enter mobile")
+
+            const obj = {email, username, mobile}
+            
+            await fetch("/users", {
+                body: JSON.stringify(obj),
+                method:"POST",
+                headers: {
+                    'Content-Type': "application/json"
+                }
+            })
+
+            location.reload()
+
+        }
+
+    </script>
+
+</body>
+</html>

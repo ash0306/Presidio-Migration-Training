@@ -1,0 +1,21 @@
+body {
+  width: min(95%, 500px);
+  margin: auto;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.users {
+  display: flex;
+  flex-direction: column;
+  gap: .5em;
+}
+
+.user {
+  background: rgb(207, 207, 207);
+  padding: .5em;
+}
