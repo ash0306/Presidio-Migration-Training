@@ -1,0 +1,4 @@
+
+git clone <source-repo>
+
+git push --mirror https://bharathvdeveloper@dev.azure.com/bharathvdeveloper/migration/_git/migration
